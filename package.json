@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "docker:build": "docker build -t cccat22_backend docker",
+    "docker:run": "docker run -it -v $(pwd)/.:/app cccat22_backend bash",
+    "compose:up": "docker compose -f docker/docker-compose.yaml up -d --build",
+    "compose:down": "docker compose -f docker/docker-compose.yaml -v down",
+    "compose:exec": "docker compose -f docker/docker-compose.yaml exec -it backend bash"
   },
   "keywords": [],
   "author": "",
@@ -18,8 +22,12 @@
     "jest": "^30.2.0",
     "nodemon": "^3.1.11",
     "pg-promise": "^12.3.0",
+    "supertest": "^7.1.4",
     "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/supertest": "^6.0.3"
   }
 }
