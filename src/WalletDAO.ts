@@ -1,10 +1,5 @@
 import pgp from "pg-promise";
-
-interface Wallet {
-  accountId: string;
-  assetId: string;
-  quantity: string;
-}
+import Wallet from "./interfaces/Wallet";
 
 export default interface WalletDAO {
   deposit(wallet: Wallet): Promise<void>;
